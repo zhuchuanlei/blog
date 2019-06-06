@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content=",,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记录一些面试题">
+<meta name="keywords" content="整理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="面试题集锦">
+<meta property="og:url" content="https://zhuchuanlei.github.io/image/interview.html">
+<meta property="og:site_name" content="祝传磊的博客">
+<meta property="og:description" content="记录一些面试题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-06T05:38:20.876Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试题集锦">
+<meta name="twitter:description" content="记录一些面试题">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhuchuanlei.github.io/image/interview.html">
+
+
+
+
+
+  <title>面试题集锦 | 祝传磊的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">祝传磊的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">面试题集锦</h1>
+
+
+	<div class="post-meta">
+		<div class="post-description">记录一些面试题</div>
+	</div>
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><p>js相关</p>
+<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>];</span><br><span class="line"><span class="comment">// 第一种</span></span><br><span class="line">[...new <span class="built_in">Set</span>(arr)]</span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line">init=[]</span><br><span class="line"><span class="keyword">var</span> result = arr.sort().reduce(<span class="function">(<span class="params">init, current</span>)=&gt;</span>&#123;               <span class="comment">// sort 排序</span></span><br><span class="line">    <span class="built_in">console</span>.log(init,current)                                   <span class="comment">// reduce(func, defaultValue) 是ECMAScript5规范中出现的数组方法 </span></span><br><span class="line">    <span class="keyword">if</span>(init.length===<span class="number">0</span> || init[init.length<span class="number">-1</span>]!==current)&#123;       <span class="comment">// 遍历每个元素，执行func, </span></span><br><span class="line">        init.push(current);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> init;</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="built_in">console</span>.log(result);   <span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建 XMLHttpRequest 对象</span></span><br><span class="line"><span class="keyword">var</span> xml = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">//规定请求的类型、URL 以及是否异步处理请求。</span></span><br><span class="line">xml.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);     <span class="comment">// 第三个参数true-异步，false-同步</span></span><br><span class="line"><span class="comment">//发送信息至服务器时内容编码类型</span></span><br><span class="line">xml.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>); </span><br><span class="line"><span class="comment">//发送请求</span></span><br><span class="line">xml.send(<span class="literal">null</span>);  </span><br><span class="line"><span class="comment">//接受服务器响应数据</span></span><br><span class="line">xml.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.readyState == <span class="number">4</span> &amp;&amp; (obj.status == <span class="number">200</span> || obj.status == <span class="number">304</span>)) &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="json对象转换json字符串"><a href="#json对象转换json字符串" class="headerlink" title="json对象转换json字符串"></a>json对象转换json字符串</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串转对象</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(json)</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'('</span> + jsonstr + <span class="string">')'</span>)   </span><br><span class="line"><span class="comment">// 对象转字符串</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(json)</span><br></pre></td></tr></table></figure>
+
+<h4 id="跨域解决方案有哪些"><a href="#跨域解决方案有哪些" class="headerlink" title="跨域解决方案有哪些"></a>跨域解决方案有哪些</h4><ol>
+<li>jsonp 只能解决get跨域<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主页面</span></span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;<span class="number">1</span></span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    localHandler = function(data)&#123;</span></span><br><span class="line"><span class="regexp">        console.log(data);                 /</span><span class="regexp">/ 打印结果: &#123;code: 'CA1998', price: 1780, tickets: 5&#125;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">    var url = "http:/</span><span class="regexp">/localhost:8002/</span>jsonp.js?code=CA1998&amp;callback=localHandler<span class="string">";</span></span><br><span class="line"><span class="string">    var script = document.createElement('script');</span></span><br><span class="line"><span class="string">    script.setAttribute('src', url);</span></span><br><span class="line"><span class="string">    document.getElementsByTagName('head')[0].appendChild(script); </span></span><br><span class="line"><span class="string">  &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// jsonp.js</span></span><br><span class="line"><span class="string">localHandler(&#123;</span></span><br><span class="line"><span class="string">    "</span>code<span class="string">": "</span>CA1998<span class="string">",</span></span><br><span class="line"><span class="string">    "</span>price<span class="string">": 1780,</span></span><br><span class="line"><span class="string">    "</span>tickets<span class="string">": 5</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>DOM,BOM,AJAX,JSON,<br>深刻理解Web标准，对可用性、可访问性等相关知识<br>node</p>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>css 相关</p>
+<h4 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h4><ol>
+<li><p>CSS盒模型是什么？<br>盒子模型包括：content、padding、margin、border</p>
+</li>
+<li><p>标准模型和IE模型的区别？</p>
+<ul>
+<li>标准模型的宽高为content的宽高</li>
+<li>IE模型的宽高包括border</li>
+</ul>
+</li>
+<li><p>CSS如何设置这两种模型？</p>
+<ul>
+<li>标准模型：box-sizing：content-box</li>
+<li>IE模型：box-sizing：border-box</li>
+</ul>
+</li>
+</ol>
+<p><code>标准盒模型</code>和<code>IE怪异盒模型</code></p>
+<p><code>box-sizing</code><br>border-box: width = contentWidth + borderWidth + paddingWidth;<br>content-box: width = contentWidth;</p>
+<h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><ol>
+<li>BFC是什么，讲一下原理<br>块级格式化上下文</li>
+</ol>
+<h4 id="让一个元素水平垂直居中"><a href="#让一个元素水平垂直居中" class="headerlink" title="让一个元素水平垂直居中"></a>让一个元素水平垂直居中</h4><h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>Promise 相关</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(fn);       <span class="comment">// Promise &#123;&lt;pending&gt;&#125;</span></span><br><span class="line">p2 = <span class="built_in">Promise</span>.resolve(p1)    <span class="comment">// Promise &#123;&lt;pending&gt;&#125;</span></span><br><span class="line">p1 === p2;                  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="built_in">Promise</span>.resolve(<span class="number">123</span>); </span><br><span class="line"><span class="comment">//打印p1 可以看到p1是一个状态置为resolved的Promise对象</span></span><br><span class="line"><span class="built_in">console</span>.log(p1);              <span class="comment">// Promise &#123; &lt;resolve&gt; : 123&#125;</span></span><br><span class="line">p1.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);       <span class="comment">// 123</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">p = <span class="built_in">Promise</span>.resolve(setTimeout(<span class="built_in">console</span>.log(<span class="number">2</span>), <span class="number">100</span>))</span><br><span class="line">p.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">输出结果: <span class="number">1</span> <span class="number">2</span> <span class="number">4</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buy</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">        resolve([<span class="string">'西红柿'</span>, <span class="string">'鸡蛋'</span>, <span class="string">'油菜'</span>]);              <span class="comment">// 打印结果</span></span><br><span class="line">    &#125;,<span class="number">3000</span>)                                             <span class="comment">// 1        // 等待3s</span></span><br><span class="line">&#125;                                                       <span class="comment">// 2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cook</span>(<span class="params">resolve, reject</span>)</span>&#123;                         <span class="comment">// ['西红柿', '鸡蛋', '油菜']</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);                                     <span class="comment">// 3        // 等待3s</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;                              <span class="comment">// 4</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">4</span>);                                 <span class="comment">// 饭</span></span><br><span class="line">        resolve (<span class="string">'饭'</span>)                                  <span class="comment">// 5</span></span><br><span class="line">    &#125;,<span class="number">3000</span>)                                             <span class="comment">// 送达</span></span><br><span class="line">&#125;                                                       <span class="comment">// 6</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">    resolve(<span class="string">'送达'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callMe</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">6</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(buy)</span><br><span class="line">.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(cook)</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(send)</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    callMe()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>面试题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> first = <span class="function"><span class="params">()</span> =&gt;</span> <span class="function">(<span class="params"><span class="keyword">new</span> <span class="built_in">Promise</span>((resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">let</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="number">7</span>);</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">           resolve(<span class="number">6</span>); </span><br><span class="line">        &#125;,<span class="number">0</span>)</span><br><span class="line">        resolve(<span class="number">1</span>);</span><br><span class="line">    &#125;); </span><br><span class="line">    resolve(<span class="number">2</span>);</span><br><span class="line">    p.then(<span class="function">(<span class="params">arg</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(arg);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line">first().then(<span class="function">(<span class="params">arg</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arg);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<p>打印结果: <code>3 7 4 1 2 5</code><br><code>第一轮事件循环</code>:
+先执行<code>宏任务</code>，主Script，new Promise 立即执行，输出<code>3</code>，执行p的 new Promise，输出<code>7</code>，发现setTimeout，放进任务队列里，p的then(then1)，放进<code>微任务队列</code>，发现first的then(then2)，放进<code>微任务队列</code>，输出<code>4</code>，宏任务执行完毕。<br>执行<code>微任务</code>，执行then1，输出<code>1</code>，执行then2，输出<code>2</code>；
+<code>第二轮事件循环</code>:
+先执行<code>宏任务</code>，即执行setTimeout的回调，输出<code>5</code>，下面一行的resolve不会生效，因为输出1时已经执行了，状态已经改变。</p>
+<ul>
+<li>setTimeout的回调比Promise.then的优先级低</li>
+</ul>
+<p><a href="https://juejin.im/post/5bd697cfe51d454c791cd1d5" target="_blank" rel="noopener">更多Promise的题目</a></p>
+<h3 id="async-await"><a href="#async-await" class="headerlink" title="async await"></a>async await</h3><p>async await 相关</p>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><p>react相关</p>
+<h4 id="react-通信"><a href="#react-通信" class="headerlink" title="react 通信"></a>react 通信</h4><p>父传子: <code>Props</code><br>子传父: <code>Props</code> + <code>callback</code><br>父传子的子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="string">`Props`</span></span><br><span class="line"><span class="number">2.</span> <span class="string">`Context`</span></span><br><span class="line">    父</span><br><span class="line">        <span class="keyword">static</span> childContextTypes = &#123;<span class="attr">color</span>: PropTypes.string&#125;</span><br><span class="line">        getChildContext()&#123; <span class="keyword">return</span> color &#125;</span><br><span class="line">    子的子</span><br><span class="line">        <span class="keyword">static</span> contextTypes = &#123;<span class="attr">color</span>: PropTypes.string&#125;</span><br><span class="line">        <span class="keyword">this</span>.context.color</span><br></pre></td></tr></table></figure>
+
+<p>非嵌套组件: 订阅</p>
+<h4 id="React如何使用-Virtual-Dom-及其优势"><a href="#React如何使用-Virtual-Dom-及其优势" class="headerlink" title="React如何使用 Virtual Dom 及其优势"></a>React如何使用 Virtual Dom 及其优势</h4><p>在JS中操作<code>Dom</code>的开销由于会引发浏览器的<code>重排重绘机制</code>, 性能消耗十分显著, 然后在JS中操作对象的效率很高。React团队通过<code>Diff</code>算法, 对比新旧两个 <code>VDom</code> 的内容, 找出不同, 一次性更新<code>Dom</code>, 减少开销。React团队通过直接对比相同层的内容等算法的优化, 将算法复杂度降低到<code>O(n)</code>。</p>
+<h4 id="setState-执行后为什么state无法正确获取设置之后的值"><a href="#setState-执行后为什么state无法正确获取设置之后的值" class="headerlink" title="setState 执行后为什么state无法正确获取设置之后的值"></a>setState 执行后为什么state无法正确获取设置之后的值</h4><p><code>setState</code>之后, <code>React</code>并没有立刻更改 <code>state</code> 的值, 因为每次改变<code>state</code>都去计算生成新的<code>VDom</code>树并更新<code>Dom</code>是一件代价高昂的事情, <code>React</code>的做法是将<code>setState</code>设计成为一个异步行为, 多次<code>setState</code>会合并成为一次, 在最后去计算生成<code>Dom</code>, 优化性能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">    a: 5</span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line">    // setState 提供的第二个参数是一个回调函数</span><br><span class="line">    // 这里能够正确获取 state 里面的值</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="为什么建议使用-Stateless-Function"><a href="#为什么建议使用-Stateless-Function" class="headerlink" title="为什么建议使用 Stateless Function"></a>为什么建议使用 Stateless Function</h4><ol>
+<li>代码更少, 逻辑更清晰</li>
+<li>更加符合 React 数据流从顶部开始的设计初衷</li>
+<li>不用使用 bind 方法</li>
+</ol>
+<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><p>es6相关</p>
+<h4 id="let-const的命令"><a href="#let-const的命令" class="headerlink" title="let const的命令"></a>let const的命令</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//变量提升</span></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="comment">// 爆炸</span></span><br><span class="line"><span class="built_in">console</span>.log(c);  <span class="comment">// 爆炸</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> c = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局声明</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)  <span class="comment">//  1 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 重复声明</span></span><br><span class="line"><span class="keyword">let</span> b  = <span class="number">200</span>;<span class="comment">//爆炸</span></span><br></pre></td></tr></table></figure>
+
+<p><code>let</code>和<code>const</code>都不能变量提升的，如果在变量声明前调用会产生暂缓性死区，报错。<br>它们声明后也不会绑在<code>window</code>（浏览器）和<code>global</code>（node）上，而<code>var</code>可以。<br>它们不能重复声明，并且<code>const</code>为常量，不能修改值。</p>
+<p>||变量提升|重复声明|全局声明|<br>|-|-|-|-|<br>|var|yes|yes|yes|<br>|let|no|no|no|<br>|const|no|no|no|</p>
+<h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><p>array.map<br>array.filter<br>…array<br>let newArray = Array.from(…new Set(array))</p>
+<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(a, b)  <span class="comment">// b的每个元素merge到a里，返回a </span></span><br><span class="line"><span class="built_in">Object</span>.keys();       <span class="comment">// 返回数组，内容是a的所有key</span></span><br><span class="line"><span class="built_in">Object</span>.values()      <span class="comment">// 返回数组，内容是a的所有值</span></span><br><span class="line"><span class="built_in">Object</span>.entries()     <span class="comment">// 返回数组，内容是a的key,value组成的数组，[[key1, value1], [key2, value2]]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>Vue 相关</p>
+<h4 id="v-if-与-v-show-的区别"><a href="#v-if-与-v-show-的区别" class="headerlink" title="v-if 与 v-show 的区别"></a>v-if 与 v-show 的区别</h4><p><code>v-if</code> 会将 Dom 直接从当前Dom树移除;<br><code>v-show</code> 则是相当于设置了 <code>display: none</code>, 但是 Dom 依旧存在于Dom树中<br>两种情况各有利弊，类似缓存，视情况不同选择不同。</p>
+<h4 id="computed-与-methods-的区别"><a href="#computed-与-methods-的区别" class="headerlink" title="computed 与 methods 的区别"></a>computed 与 methods 的区别</h4><p><code>computed</code> 方法会有缓存值,<br><code>methods</code> 不会存在缓存值。</p>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p><code>webpack</code>是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。它可以很好地管理、打包开发中所用到的<code>HTML</code>,<code>CSS</code>,<code>JavaScript</code>和静态文件（图片，字体）等，让开发更高效。对于不同类型的依赖，<code>webpack</code>有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成<code>优化</code>的<code>静态资源</code>。
+<a href="https://juejin.im/post/5c6cffde6fb9a049d975c8c1" target="_blank" rel="noopener">地址</a></p>
+<p>可以用一些官方脚手架</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="Cookie-LocalStorage-与-SessionStorage"><a href="#Cookie-LocalStorage-与-SessionStorage" class="headerlink" title="Cookie, LocalStorage 与 SessionStorage"></a>Cookie, LocalStorage 与 SessionStorage</h4><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Cookie</th>
+<th>localStorage</th>
+<th>SessionStorage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据的生命周期</td>
+<td>可设置失效时间，默认是关闭浏览器后失效</td>
+<td>除非被清除，否则永远存在</td>
+<td>仅在当前会话下有效，关闭页面或浏览器后被清除</td>
+</tr>
+<tr>
+<td>存放数据大小</td>
+<td>4K左右</td>
+<td>一般为5MB</td>
+<td>一般为5MB</td>
+</tr>
+<tr>
+<td>与服务器端通信</td>
+<td>每次都会携带在HTTP头中，如果保存过多数据会带来性能问题</td>
+<td>仅在客户端中保存，不参与和服务器通信</td>
+<td>仅在客户端中保存，不参与和服务器通信</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td>需要自己封装，原生的Cookie接口不友好</td>
+<td>原生接口可以接受，也可以再封装来对Object和Array</td>
+<td>原生接口可以接受，也可以再封装来对Object和Array</td>
+</tr>
+</tbody></table>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">祝传磊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS"><span class="nav-number">1.</span> <span class="nav-text">JS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组去重"><span class="nav-number">1.1.</span> <span class="nav-text">数组去重</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX"><span class="nav-number">2.</span> <span class="nav-text">AJAX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#json对象转换json字符串"><span class="nav-number">2.1.</span> <span class="nav-text">json对象转换json字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域解决方案有哪些"><span class="nav-number">2.2.</span> <span class="nav-text">跨域解决方案有哪些</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">3.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS盒模型"><span class="nav-number">3.1.</span> <span class="nav-text">CSS盒模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC"><span class="nav-number">3.2.</span> <span class="nav-text">BFC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让一个元素水平垂直居中"><span class="nav-number">3.3.</span> <span class="nav-text">让一个元素水平垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise"><span class="nav-number">4.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#async-await"><span class="nav-number">5.</span> <span class="nav-text">async await</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">6.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#react-通信"><span class="nav-number">6.1.</span> <span class="nav-text">react 通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React如何使用-Virtual-Dom-及其优势"><span class="nav-number">6.2.</span> <span class="nav-text">React如何使用 Virtual Dom 及其优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setState-执行后为什么state无法正确获取设置之后的值"><span class="nav-number">6.3.</span> <span class="nav-text">setState 执行后为什么state无法正确获取设置之后的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么建议使用-Stateless-Function"><span class="nav-number">6.4.</span> <span class="nav-text">为什么建议使用 Stateless Function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6"><span class="nav-number">7.</span> <span class="nav-text">ES6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-const的命令"><span class="nav-number">7.1.</span> <span class="nav-text">let const的命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array"><span class="nav-number">7.2.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object"><span class="nav-number">7.3.</span> <span class="nav-text">Object</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue"><span class="nav-number">8.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#v-if-与-v-show-的区别"><span class="nav-number">8.1.</span> <span class="nav-text">v-if 与 v-show 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#computed-与-methods-的区别"><span class="nav-number">8.2.</span> <span class="nav-text">computed 与 methods 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack"><span class="nav-number">9.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">10.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie-LocalStorage-与-SessionStorage"><span class="nav-number">10.1.</span> <span class="nav-text">Cookie, LocalStorage 与 SessionStorage</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">祝传磊</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ATV4V8h7gyzyzGYJGRpPpcgz-gzGzoHsz", "D1mFKaaJMjS2HEOBwReVFqQX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
