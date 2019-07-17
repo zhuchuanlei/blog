@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="祝传磊的博客">
 <meta property="og:description" content="Git的一些常用命令记录，目前仅用于本人开发时参考。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-06T09:25:39.160Z">
+<meta property="og:updated_time" content="2019-07-17T08:05:34.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 常用命令记录">
 <meta name="twitter:description" content="Git的一些常用命令记录，目前仅用于本人开发时参考。">
@@ -278,8 +278,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-06T17:25:39+08:00">
-                2019-06-06
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-17T16:05:34+08:00">
+                2019-07-17
               </time>
             
           </span>
@@ -331,7 +331,7 @@
 
 <h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git tag v12.2.0                           // 新增标签</span><br><span class="line">git push origin v12.2.0                   // 推送到远程仓库(指定tag)</span><br><span class="line">git push origin --tag                     // 推送到远程仓库(所有tag)</span><br><span class="line">git tag -d v12.2.0                        // 删除本地分支</span><br><span class="line">git push origin --delete tag v12.2.0      // 删除远程分支</span><br></pre></td></tr></table></figure>
 
-<h3 id="代码撤回"><a href="#代码撤回" class="headerlink" title="代码撤回"></a>代码撤回</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">撤销某次提交</span><br><span class="line">git revert HEAD               // 撤回最近一次提交</span><br><span class="line">git revert HEAD~n             // 撤回最近n次提交</span><br><span class="line">git reset commit_id           // 撤回某次已经提交的代码</span><br><span class="line"></span><br><span class="line">代码回滚到</span><br><span class="line">git reset --hard commit_id    // 将代码会滚到某次提交代码中</span><br><span class="line">git revert commit_id          // 将代码会滚到某次提交代码之前</span><br></pre></td></tr></table></figure>
+<h3 id="代码撤回"><a href="#代码撤回" class="headerlink" title="代码撤回"></a>代码撤回</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">撤销某次提交</span><br><span class="line">git revert HEAD               // 撤回最近一次提交</span><br><span class="line">git revert HEAD~n             // 撤回最近n次提交</span><br><span class="line">git revert commit_id          // 撤回 commit_id 提交</span><br><span class="line">git reset commit_id           // 撤回某次已经提交的代码</span><br><span class="line"></span><br><span class="line">代码回滚到</span><br><span class="line">git reset --hard commit_id    // 将代码会滚到某次提交代码中</span><br></pre></td></tr></table></figure>
 
 <h3 id="oh-my-zsh-常用命令"><a href="#oh-my-zsh-常用命令" class="headerlink" title="oh-my-zsh 常用命令"></a>oh-my-zsh 常用命令</h3><table>
 <thead>
