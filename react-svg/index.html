@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="React svg">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="使用SVG格式的图片，不仅可以不失真，还可以灵活改变其颜色。那么当设计师给出的svg含有多种颜色怎么处理呢？">
+<meta name="keywords" content="React svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React中一个SVG的高亮色有多种颜色的处理方式">
+<meta property="og:url" content="https://zhuchuanlei.github.io/react-svg/index.html">
+<meta property="og:site_name" content="祝传磊的博客">
+<meta property="og:description" content="使用SVG格式的图片，不仅可以不失真，还可以灵活改变其颜色。那么当设计师给出的svg含有多种颜色怎么处理呢？">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/svg/icon1.png">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/svg/grayscale.png">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/svg/blur.png">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/svg/drop-shadow-1.png">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/svg/icon2.png">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/svg/icon3.png">
+<meta property="og:updated_time" content="2020-12-07T07:55:03.020Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React中一个SVG的高亮色有多种颜色的处理方式">
+<meta name="twitter:description" content="使用SVG格式的图片，不仅可以不失真，还可以灵活改变其颜色。那么当设计师给出的svg含有多种颜色怎么处理呢？">
+<meta name="twitter:image" content="https://zhuchuanlei.github.io/image/svg/icon1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhuchuanlei.github.io/react-svg/">
+
+
+
+
+
+  <title>React中一个SVG的高亮色有多种颜色的处理方式 | 祝传磊的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">祝传磊的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhuchuanlei.github.io/blog/react-svg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="祝传磊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="祝传磊的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React中一个SVG的高亮色有多种颜色的处理方式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-16T00:00:00+08:00">
+                2020-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/blog/react-svg/" class="leancloud_visitors" data-flag-title="React中一个SVG的高亮色有多种颜色的处理方式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  使用SVG格式的图片，不仅可以不失真，还可以灵活改变其颜色。那么当设计师给出的svg含有多种颜色怎么处理呢？
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>事情是这样滴，设计师给出一个图标在蓝湖上，我首选是下载为png格式的图片。前前后后也改了三版。</p>
+<p><img src="../image/svg/icon1.png" alt></p>
+<h3 id="第一版-png格式的icon"><a href="#第一版-png格式的icon" class="headerlink" title="第一版 png格式的icon"></a>第一版 png格式的icon</h3><h4 id="为什么使用png"><a href="#为什么使用png" class="headerlink" title="为什么使用png"></a>为什么使用png</h4><ol>
+<li>图片不会被打包进<code>bundle.js</code>中，不会增加包的体积</li>
+<li>图片可以被<code>缓存</code>起来，仅第一次请求时需要下载，后续直接读取缓存副本显示，而且图标图片大小不会很大</li>
+</ol>
+<h4 id="高亮时怎么变色"><a href="#高亮时怎么变色" class="headerlink" title="高亮时怎么变色"></a>高亮时怎么变色</h4><p>都知道图片不是元素，不能通过<code>color</code>或者<code>background-color</code>来修改颜色，那么高亮时怎么换色呢？</p>
+<h4 id="filter-drop-shadow"><a href="#filter-drop-shadow" class="headerlink" title="filter drop-shadow"></a>filter drop-shadow</h4><p><code>filter</code>是将模糊或者颜色的图形效果应用在元素上的CSS属性。</p>
+<ol>
+<li>一些特殊日子，或者清明节时，某些官网和账号的头像会变灰色，就是CSS一个属性搞定的。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">grayscale</span>(1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="../image/svg/grayscale.png" alt></p>
+<ol start="2">
+<li>模糊(马赛克)，比如打开详情页时，突然发现你的session失效了，产品经理只想在当前页让用户输入账号，又不想让用户看到里面的信息<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(10px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="../image/svg/blur.png" alt></p>
+<p><code>更多属性请查看</code><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter" target="_blank" rel="noopener">filter属性</a></p>
+<ol start="3">
+<li>我用到的是 <code>drop-shadow</code> 阴影效果。直接看代码<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(18px 0px #2142FA);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="../image/svg/drop-shadow-1.png" alt></p>
+<p>是根据原有图形，创建一个阴影，向左偏移18px, 向下偏移0px，阴影颜色是<code>#2142FA</code>，还省略一个模糊设置，默认是0px所以没写。<br>再把原有图形隐藏掉，阴影移动到原来图形的位置即可。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(100px 0px #2142FA);</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第二版-png失真处理"><a href="#第二版-png失真处理" class="headerlink" title="第二版 png失真处理"></a>第二版 png失真处理</h3><p>png图片看着会有一点模糊，所以改用svg格式。<br>从蓝湖上下载的文件格式，换成svg。引入<code>react-svg-inline</code>库，配置好svg即可。</p>
+<h4 id="小细节"><a href="#小细节" class="headerlink" title="小细节"></a>小细节</h4><p><code>测试发现鼠标悬浮时，出现了tips</code><br><img src="../image/svg/icon2.png" alt><br>我确信我没有添加<code>title</code>属性，难道是<code>react-svg-inline</code>引入了? 排查一下也没有啊啊。<br>原来是SVG里带的，第四行。我这边就删除了三四五这3行</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"38px"</span> <span class="attr">height</span>=<span class="string">"37px"</span> &gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Generator: Sketch 57.1 (83088) - https://sketch.com --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ic_report<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  <span class="comment">&lt;!-- 生成的悬浮效果，删除 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">desc</span>&gt;</span>Created with Sketch.<span class="tag">&lt;/<span class="name">desc</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"页面-1"</span> <span class="attr">stroke</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"1"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">fill-rule</span>=<span class="string">"evenodd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"data360"</span> <span class="attr">transform</span>=<span class="string">"translate(-52.000000, -230.000000)"</span> <span class="attr">fill-rule</span>=<span class="string">"nonzero"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"ic_report"</span> <span class="attr">transform</span>=<span class="string">"translate(51.000000, 228.000000)"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span> <span class="attr">id</span>=<span class="string">"形状"</span> <span class="attr">fill</span>=<span class="string">"#878A94"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="渲染SVG图标"><a href="#渲染SVG图标" class="headerlink" title="渲染SVG图标"></a>渲染SVG图标</h4><p>引入<code>react-svg-inline</code>，用<code>span</code>标签包裹起来，方便设置svg里的颜色</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import SVGInline from "react-svg-inline";</span><br><span class="line"><span class="tag">&lt;<span class="name">Svg</span> <span class="attr">fillColor</span>=<span class="string">&#123;fillColor&#125;</span> <span class="attr">svgWidth</span>=<span class="string">&#123;svgWidth&#125;</span> <span class="attr">svgHeight</span>=<span class="string">&#123;svgHeight&#125;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SVGInline</span> <span class="attr">svg</span>=<span class="string">&#123;svgPath&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Svg</span>&gt;</span></span><br><span class="line"></span><br><span class="line">使用</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">SVGComponent</span></span></span><br><span class="line"><span class="tag">    <span class="attr">svgWidth</span>=<span class="string">&#123;34&#125;</span> <span class="attr">svgHeight</span>=<span class="string">&#123;34&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">svgPath</span>=<span class="string">&#123;require(</span>"<span class="attr">..</span>/<span class="attr">..</span>/<span class="attr">images</span>/<span class="attr">ic_report.svg</span>")&#125;</span></span><br><span class="line"><span class="tag">    <span class="attr">fillColor</span>=<span class="string">&#123;active</span> ? "#<span class="attr">2142FA</span>" <span class="attr">:</span> "#<span class="attr">878A94</span>"&#125;</span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const Svg = styled.span`</span><br><span class="line">    ... 省略一些样式设置</span><br><span class="line">    svg &#123;</span><br><span class="line">        path &#123;</span><br><span class="line">            fill: $&#123;(props) =&gt; props.fillColor&#125; <span class="meta">!important</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<h4 id="更换成SVG完成"><a href="#更换成SVG完成" class="headerlink" title="更换成SVG完成"></a>更换成SVG完成</h4><p>这就完成了从<code>png</code>到<code>svg</code>的调整。</p>
+<ol>
+<li>蓝湖里下载的svg图片</li>
+<li>svg文件中去除<code>title</code>等多余标签</li>
+<li>引入<code>react-svg-inline</code>，设置填充色</li>
+</ol>
+<h3 id="图标美化"><a href="#图标美化" class="headerlink" title="图标美化"></a>图标美化</h3><p><code>设计师又出了一版图标，原来标图同时只有一个色号，现在出现了两种色号</code></p>
+<p><img src="../image/svg/icon3.png" alt></p>
+<p>下载svg格式后，同样删除多余的<code>title</code>属性时，发现多了一个标签<code>rect</code>画矩形。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"38px"</span> <span class="attr">height</span>=<span class="string">"37px"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"页面-1"</span> <span class="attr">stroke</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"1"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">fill-rule</span>=<span class="string">"evenodd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"data360"</span> <span class="attr">transform</span>=<span class="string">"translate(-52.000000, -230.000000)"</span> <span class="attr">fill-rule</span>=<span class="string">"nonzero"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"ic_report"</span> <span class="attr">transform</span>=<span class="string">"translate(51.000000, 228.000000)"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">rect</span> <span class="attr">id</span>=<span class="string">"矩形"</span> <span class="attr">fill</span>=<span class="string">"#000000"</span>&gt;</span><span class="tag">&lt;/<span class="name">rect</span>&gt;</span>  <span class="comment">&lt;!-- 新加的标签 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span> <span class="attr">id</span>=<span class="string">"形状"</span> <span class="attr">fill</span>=<span class="string">"#878A94"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样好办啊，填充颜色时，给<code>rect</code>单独设置颜色即可</p>
+<h4 id="渲染SVG图标-1"><a href="#渲染SVG图标-1" class="headerlink" title="渲染SVG图标"></a>渲染SVG图标</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import SVGInline from "react-svg-inline";</span><br><span class="line"><span class="tag">&lt;<span class="name">Svg</span> <span class="attr">fillColor</span>=<span class="string">&#123;fillColor&#125;</span> <span class="attr">rectColor</span>=<span class="string">&#123;rectColor&#125;</span> <span class="attr">svgWidth</span>=<span class="string">&#123;svgWidth&#125;</span> <span class="attr">svgHeight</span>=<span class="string">&#123;svgHeight&#125;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SVGInline</span> <span class="attr">svg</span>=<span class="string">&#123;svgPath&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Svg</span>&gt;</span></span><br><span class="line"></span><br><span class="line">使用</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">SVGComponent</span></span></span><br><span class="line"><span class="tag">    <span class="attr">svgWidth</span>=<span class="string">&#123;34&#125;</span> <span class="attr">svgHeight</span>=<span class="string">&#123;34&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">svgPath</span>=<span class="string">&#123;require(</span>"<span class="attr">..</span>/<span class="attr">..</span>/<span class="attr">images</span>/<span class="attr">ic_report.svg</span>")&#125;</span></span><br><span class="line"><span class="tag">    <span class="attr">fillColor</span>=<span class="string">&#123;active</span> ? "#<span class="attr">2142FA</span>" <span class="attr">:</span> "#<span class="attr">878A94</span>"&#125;</span></span><br><span class="line"><span class="tag">    <span class="attr">rectColor</span>=<span class="string">&#123;active</span> ? "#<span class="attr">8A9CFF</span>" <span class="attr">:</span> "#<span class="attr">D0D3D8</span>"&#125;</span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const Svg = styled.span`</span><br><span class="line">    ... 省略一些样式设置</span><br><span class="line">    svg &#123;</span><br><span class="line">        path &#123;</span><br><span class="line">            fill: $&#123;(props) =&gt; props.fillColor&#125; <span class="meta">!important</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        rect &#123;</span><br><span class="line">            fill: $&#123;(props) =&gt; props.rectColor&#125; <span class="meta">!important</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<h4 id="事情并不简单"><a href="#事情并不简单" class="headerlink" title="事情并不简单"></a>事情并不简单</h4><p>事情并不简单，单纯的设置<code>rect</code>的颜色，耦合性太高。例子中的图标比较简单，设计师后几个图标就比较乱。<br>所以这边也手动维护乱一下svg文件，<code>给标签添加类，通过类名设置填充色</code>。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"38px"</span> <span class="attr">height</span>=<span class="string">"37px"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"页面-1"</span> <span class="attr">stroke</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"1"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">fill-rule</span>=<span class="string">"evenodd"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"data360"</span> <span class="attr">transform</span>=<span class="string">"translate(-52.000000, -230.000000)"</span> <span class="attr">fill-rule</span>=<span class="string">"nonzero"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"ic_report"</span> <span class="attr">transform</span>=<span class="string">"translate(51.000000, 228.000000)"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">rect</span> <span class="attr">class</span>=<span class="string">"rectColor"</span>&gt;</span><span class="tag">&lt;/<span class="name">rect</span>&gt;</span>  <span class="comment">&lt;!-- 维护类名 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"fillColor"</span> <span class="attr">d</span>=<span class="string">"..."</span> <span class="attr">id</span>=<span class="string">"形状"</span> <span class="attr">fill</span>=<span class="string">"#878A94"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const Svg = styled.span`</span><br><span class="line">    ... 省略一些样式设置</span><br><span class="line">    svg &#123;</span><br><span class="line">        <span class="selector-class">.fillColor</span> &#123;</span><br><span class="line">            fill: $&#123;(props) =&gt; props.fillColor&#125; <span class="meta">!important</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.rectColor</span> &#123;</span><br><span class="line">            fill: $&#123;(props) =&gt; props.rectColor&#125; <span class="meta">!important</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><code>png</code>会失真，如果让设计师提供像素更高的图标，<code>png</code>看上去不会失真，但是第三版的图标看，还是需要换成<code>svg</code>格式的</li>
+<li>通过维护<code>svg</code>文件的类名，填充不同的颜色，虽然能达到，但维护成本大，更换图标还需要再维护</li>
+<li>更换<code>svg</code>后<code>bundle.js</code>增加了8KB(Gzipped size)</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/解决方案/" rel="tag"># 解决方案</a>
+          
+            <a href="/blog/tags/svg/" rel="tag"># svg</a>
+          
+            <a href="/blog/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/HTTP-cache/" rel="next" title="HTTP缓存">
+                <i class="fa fa-chevron-left"></i> HTTP缓存
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/prototype/" rel="prev" title="原型 原型链">
+                原型 原型链 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">祝传磊</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一版-png格式的icon"><span class="nav-number">2.</span> <span class="nav-text">第一版 png格式的icon</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用png"><span class="nav-number">2.1.</span> <span class="nav-text">为什么使用png</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高亮时怎么变色"><span class="nav-number">2.2.</span> <span class="nav-text">高亮时怎么变色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter-drop-shadow"><span class="nav-number">2.3.</span> <span class="nav-text">filter drop-shadow</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二版-png失真处理"><span class="nav-number">3.</span> <span class="nav-text">第二版 png失真处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小细节"><span class="nav-number">3.1.</span> <span class="nav-text">小细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染SVG图标"><span class="nav-number">3.2.</span> <span class="nav-text">渲染SVG图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更换成SVG完成"><span class="nav-number">3.3.</span> <span class="nav-text">更换成SVG完成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图标美化"><span class="nav-number">4.</span> <span class="nav-text">图标美化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染SVG图标-1"><span class="nav-number">4.1.</span> <span class="nav-text">渲染SVG图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事情并不简单"><span class="nav-number">4.2.</span> <span class="nav-text">事情并不简单</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">祝传磊</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ATV4V8h7gyzyzGYJGRpPpcgz-gzGzoHsz", "D1mFKaaJMjS2HEOBwReVFqQX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
