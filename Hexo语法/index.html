@@ -82,15 +82,16 @@
 <meta name="description" content="本文介绍了 Hexo 的一些用法，如：代码块、图片、连接等，目前仅用于本人开发时参考。">
 <meta name="keywords" content="hexo markDown">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 常用语法整理">
+<meta property="og:title" content="Hexo markDown 常用语法整理">
 <meta property="og:url" content="https://zhuchuanlei.github.io/Hexo语法/index.html">
 <meta property="og:site_name" content="祝传磊的博客">
 <meta property="og:description" content="本文介绍了 Hexo 的一些用法，如：代码块、图片、连接等，目前仅用于本人开发时参考。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://placekitten.com/g/20/20">
-<meta property="og:updated_time" content="2019-06-06T09:26:00.258Z">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/codeblock.png">
+<meta property="og:updated_time" content="2020-12-08T06:10:06.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 常用语法整理">
+<meta name="twitter:title" content="Hexo markDown 常用语法整理">
 <meta name="twitter:description" content="本文介绍了 Hexo 的一些用法，如：代码块、图片、连接等，目前仅用于本人开发时参考。">
 <meta name="twitter:image" content="http://placekitten.com/g/20/20">
 
@@ -128,7 +129,7 @@
 
 
 
-  <title>Hexo 常用语法整理 | 祝传磊的博客</title>
+  <title>Hexo markDown 常用语法整理 | 祝传磊的博客</title>
   
 
 
@@ -252,7 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo 常用语法整理</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo markDown 常用语法整理</h1>
         
 
         <div class="post-meta">
@@ -282,7 +283,7 @@
 
           
           
-             <span id="/blog/Hexo语法/" class="leancloud_visitors" data-flag-title="Hexo 常用语法整理">
+             <span id="/blog/Hexo语法/" class="leancloud_visitors" data-flag-title="Hexo markDown 常用语法整理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -320,14 +321,17 @@
         <p>此文档是在已经建立好<code>Hexo</code>博客的前提</p>
 <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
 
-<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![](../image/test.png)</span><br><span class="line">![](http://placekitten.com/g/20/20)</span><br></pre></td></tr></table></figure>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![](../image/test.png)</span><br><span class="line">![](http://placekitten.com/g/20/20)</span><br><span class="line">[<span class="string">![沙漠中的岩石图片</span>](<span class="link">/assets/img/shiprock.jpg "Shiprock"</span>)](<span class="link">https://markdown.com.cn</span>) // 图片链接</span><br></pre></td></tr></table></figure>
 
 <p>当找不到目标图片, 显示[]中的文字</p>
 <p><img src="http://placekitten.com/g/20/20" alt="123"></p>
-<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![代码块](../image/codeblock.png)</span><br><span class="line"></span><br><span class="line"># 链接</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://zhuchuanlei.github.io/blog/Hexo语法/">Hexo语法</a><br>[Hexo语法]: <a href="https://zhuchuanlei.github.io/blog/Hexo语法/">https://zhuchuanlei.github.io/blog/Hexo语法/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Hexo语法](https://zhuchuanlei.github.io/blog/Hexo语法/)</span><br><span class="line">[Hexo语法]: https://zhuchuanlei.github.io/blog/Hexo语法/</span><br></pre></td></tr></table></figure>
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p><img src="../image/codeblock.png" alt="代码块"></p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
+<p>应用块<br>应用块</p>
+</blockquote>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Hexo语法](https://zhuchuanlei.github.io/blog/Hexo语法/  &quot;title&quot;)</span><br><span class="line">[Hexo语法]: https://zhuchuanlei.github.io/blog/Hexo语法/</span><br></pre></td></tr></table></figure>
 
+<p><a href="https://zhuchuanlei.github.io/blog/Hexo语法/">Hexo语法</a><br>[Hexo语法]: <a href="https://zhuchuanlei.github.io/blog/Hexo语法/">https://zhuchuanlei.github.io/blog/Hexo语法/</a></p>
 <h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">---</span><br><span class="line">___</span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -517,7 +521,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -550,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标题"><span class="nav-number">1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片"><span class="nav-number">2.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码块"><span class="nav-number">3.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割线"><span class="nav-number">4.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格"><span class="nav-number">5.</span> <span class="nav-text">表格</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标题"><span class="nav-number">1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片"><span class="nav-number">2.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码块"><span class="nav-number">3.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用"><span class="nav-number">4.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链接"><span class="nav-number">5.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割线"><span class="nav-number">6.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格"><span class="nav-number">7.</span> <span class="nav-text">表格</span></a></li></ol></div>
             
 
           </div>
