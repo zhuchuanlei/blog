@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://zhuchuanlei.github.io/image/prototype/4.png">
 <meta property="og:image" content="https://zhuchuanlei.github.io/image/prototype/5.png">
 <meta property="og:image" content="https://zhuchuanlei.github.io/image/prototype/6.png">
-<meta property="og:updated_time" content="2020-12-08T09:58:16.324Z">
+<meta property="og:updated_time" content="2020-12-09T09:42:32.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型 原型链">
 <meta name="twitter:description" content="原型和原型链的简单梳理，prototype、__proto__和constructor的三角关系">
@@ -327,16 +327,16 @@
 
 <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h3><p>看第4行代码<code>Male.prototype.sex = &quot;男&quot;;</code>，函数<code>Male</code>有个<code>prototype</code>对象属性，并且可以给其赋值。</p>
 <ol>
-<li><code>Javascript</code>中，每一个函数都有一个<code>prototype</code>对象属性，指向的是另一个对象，这个对象叫它<code>实例原型</code>。</li>
-<li><code>实例原型</code>中的所有属性和方法，都会被构造函数的实例所继承，如<code>sex</code>属性。所以会把不变的属性和方法，放在<code>实例原型</code>中。</li>
+<li><code>Javascript</code>中，每一个函数都有一个<code>prototype</code>对象属性，指向的是另一个对象，这个对象叫它<code>原型对象</code>。</li>
+<li><code>原型对象</code>中的所有属性和方法，都会被构造函数的实例所继承，如<code>sex</code>属性。所以会把不变的属性和方法，放在<code>原型对象</code>中。</li>
 </ol>
-<p>构造函数和实例原型之间的关系：</p>
+<p>构造函数和原型对象之间的关系：</p>
 <p><img src="../image/prototype/1.png" alt></p>
 <h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a>__proto__</h3><p>打印<code>ZS</code>的时候，你会看到，它不仅仅只有<code>name</code>属性，还有<code>__proto__</code>属性。这是一个隐式属性</p>
 <img src="../image/prototype/2.png" width="220">
 
 <ol start="3">
-<li>每一个对象(null除外)都会有这个属性<code>__proto__</code>，它指向的是<code>实例原型</code>。</li>
+<li>每一个对象(null除外)都会有这个属性<code>__proto__</code>，它指向的是<code>原型对象</code>。</li>
 <li>执行<code>ZS.__proto__</code>相当于执行<code>Object.getPrototypeOf(ZS)</code>。</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(ZS.__proto__ === Male.prototype);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
@@ -359,7 +359,7 @@
 <li>查找<code>ZS</code>的原型<code>ZS.__proto__</code>的属性，查到了<code>sex</code>属性，返回。</li>
 </ul>
 <p>等等。。。那如果<code>ZS.__proto__</code>也没有查到该属性，那<code>ZS.__proto__</code>的原型又是什么呢？</p>
-<h2 id="原型的原型"><a href="#原型的原型" class="headerlink" title="原型的原型"></a>原型的原型</h2><p>正如第3条所说的，每个对象都有原型。<code>ZS.__proto__</code>是一个对象，是通过构造函数<code>Object</code>创建的，那么<code>ZS.__proto__</code>的原型就是<code>Object</code>的实例原型。如下:</p>
+<h2 id="原型的原型"><a href="#原型的原型" class="headerlink" title="原型的原型"></a>原型的原型</h2><p>正如第3条所说的，每个对象都有原型。<code>ZS.__proto__</code>是一个对象，是通过构造函数<code>Object</code>创建的，那么<code>ZS.__proto__</code>的原型就是<code>Object</code>的原型对象。如下:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(ZS.__proto__.__proto__ === <span class="built_in">Object</span>.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="../image/prototype/5.png" alt></p>
@@ -367,7 +367,7 @@
 <p>除了null之外，对象都有原型，且对象的原型也是个对象，那么就有对象的原型的原型…一直到没有原型即null，正如上图中蓝色线条，就是一条原型链。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li>对象都有原型(null除外)，原型是个对象</li>
-<li>对象的<strong>proto</strong>指向对应的原型，原型的constructor指向对应的构造函数，构造函数的prototype指向该实例的原型</li>
+<li>对象的<strong>proto</strong>指向对应的原型，原型的constructor指向对应的构造函数，构造函数的prototype指向对应实例的原型对象</li>
 <li>读取对象的属性时，从本身属性到一层一层的原型往上找，直到null。找到了即返回，找不到返回undefined</li>
 </ol>
 <h3 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ZS.__proto__ === Male.prototype  <span class="comment">// true</span></span><br><span class="line">ZS.__proto__.__proto__ === <span class="built_in">Object</span>.prototype;  <span class="comment">// true</span></span><br><span class="line">ZS.__proto__.constructor === ZS.constructor === Male.prototype.constructor === Male  <span class="comment">// true</span></span><br><span class="line">Male.__proto__ === <span class="built_in">Function</span>.prototype  <span class="comment">// true</span></span><br><span class="line">ZS.prototype.constructor  <span class="comment">// Uncaught TypeError: Cannot read property 'constructor' of undefined</span></span><br></pre></td></tr></table></figure>
