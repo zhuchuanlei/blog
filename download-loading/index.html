@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="sockjs-node webpack">
+  <meta name="keywords" content="download loading 实现">
 
 
 
@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="解决项目本地运行时一直报 sockjs-node/info 接口的错误">
-<meta name="keywords" content="sockjs-node webpack">
+<meta name="description" content="下载文档时，怎么能显示loading，并在文件流导出后及时隐藏loading">
+<meta name="keywords" content="download loading 实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sockjs-node 报错">
-<meta property="og:url" content="https://zhuchuanlei.github.io/sockjs-node-error/index.html">
+<meta property="og:title" content="下载文档显示loading动画实现方式">
+<meta property="og:url" content="https://zhuchuanlei.github.io/download-loading/index.html">
 <meta property="og:site_name" content="祝传磊的博客">
-<meta property="og:description" content="解决项目本地运行时一直报 sockjs-node/info 接口的错误">
+<meta property="og:description" content="下载文档时，怎么能显示loading，并在文件流导出后及时隐藏loading">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zhuchuanlei.github.io/image/sockjs-node-error/1.png">
-<meta property="og:updated_time" content="2020-12-04T06:27:52.614Z">
+<meta property="og:image" content="https://zhuchuanlei.github.io/image/download-loading/1.png">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d888444f21e64cad89acdea4b816478e~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:updated_time" content="2020-12-10T06:28:06.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sockjs-node 报错">
-<meta name="twitter:description" content="解决项目本地运行时一直报 sockjs-node/info 接口的错误">
-<meta name="twitter:image" content="https://zhuchuanlei.github.io/image/sockjs-node-error/1.png">
+<meta name="twitter:title" content="下载文档显示loading动画实现方式">
+<meta name="twitter:description" content="下载文档时，怎么能显示loading，并在文件流导出后及时隐藏loading">
+<meta name="twitter:image" content="https://zhuchuanlei.github.io/image/download-loading/1.png">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://zhuchuanlei.github.io/sockjs-node-error/">
+  <link rel="canonical" href="https://zhuchuanlei.github.io/download-loading/">
 
 
 
 
 
-  <title>sockjs-node 报错 | 祝传磊的博客</title>
+  <title>下载文档显示loading动画实现方式 | 祝传磊的博客</title>
   
 
 
@@ -235,7 +236,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhuchuanlei.github.io/blog/sockjs-node-error/">
+    <link itemprop="mainEntityOfPage" href="https://zhuchuanlei.github.io/blog/download-loading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="祝传磊">
@@ -252,7 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">sockjs-node 报错</h1>
+          <h1 class="post-title" itemprop="name headline">下载文档显示loading动画实现方式</h1>
         
 
         <div class="post-meta">
@@ -264,8 +265,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T00:00:00+08:00">
-                2019-06-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-17T00:00:00+08:00">
+                2020-08-17
               </time>
             
 
@@ -282,7 +283,7 @@
 
           
           
-             <span id="/blog/sockjs-node-error/" class="leancloud_visitors" data-flag-title="sockjs-node 报错">
+             <span id="/blog/download-loading/" class="leancloud_visitors" data-flag-title="下载文档显示loading动画实现方式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -300,7 +301,7 @@
 
           
               <div class="post-description">
-                  解决项目本地运行时一直报 sockjs-node/info 接口的错误
+                  下载文档时，怎么能显示loading，并在文件流导出后及时隐藏loading
               </div>
           
 
@@ -317,23 +318,31 @@
       
 
       
-        <h3 id="sockjs-node-报错"><a href="#sockjs-node-报错" class="headerlink" title="sockjs-node 报错"></a>sockjs-node 报错</h3><p>项目本地运行时一直报 sockjs-node/info 接口的错误，如下图:</p>
-<p><img src="../image/sockjs-node-error/1.png" alt></p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
-<li>修改文件配置</li>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>产品经理: 你这下载按钮点了没反应啊！<br>你: 那是后台太慢了。<br>产品经理: 后台去优化，你给我加一个loading动画</p>
+</blockquote>
+<p>遇到这种情况，以前我都是跟后台商量说: <code>这个接口返回的是文件流，我捕捉不到，所以没办法判断loading啥时候结束。需要拆成两个接口:</code></p>
+<ol>
+<li>发起请求，显示loading，告诉后台该整理数据里。</li>
+<li>请求回来后loading结束，同时发起另一个请求，下载数据</li>
 </ol>
-<ul>
-<li><p>找到/node_modules/sockjs-client/dist/sockjs.js，</p>
-</li>
-<li><p>找到代码的 1605行，</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// self.xhr.send(payload);</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    self.emit(<span class="string">'finish'</span>, <span class="number">0</span>, <span class="string">''</span>);</span><br><span class="line">    self._cleanup(<span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解决。</p>
-</li>
-</ul>
-<ol start="2">
-<li>修改webpack配置<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">port = <span class="number">8000</span>;</span><br><span class="line">&#123;</span><br><span class="line">    entry: [</span><br><span class="line">        <span class="string">"webpack-dev-server/client?http://0.0.0.0:"</span> + port,</span><br><span class="line">    ],</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        port: port,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<h2 id="两个接口"><a href="#两个接口" class="headerlink" title="两个接口"></a>两个接口</h2><p>就是上面说的方案。</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
+<li>前端显示loading。请求<code>接口1</code>，传条件，告诉后台准备数据；</li>
+<li>后台根据请求值开始准备数据；</li>
+<li>后台准备完成后，将数据存成文件放在服务器里，并返回<code>接口1</code>；</li>
+<li>前端接受到<code>接口1</code>的响应后，结束loading，同时请求<code>接口2</code>，下载<code>接口1</code>准备的文件。</li>
 </ol>
+<img src="../image/download-loading/1.png" width="420">
+
+<p>注: 为了保证<code>接口2</code>下载的数据是第一次<code>接口1</code>所准备的，所以第3步<code>接口1</code>的返回值需要给一个<code>id</code>。请求<code>接口2</code>的时候把<code>id</code>带给后台。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>目测没有什么问题，是的，我之前用的时候也可以满足需求正常使用。但是有一天，后台提出，要多台服务器，做负载均衡。这问题就出现了: <code>接口1</code>是A服务器接收的请求，准备的文件也放在了A服务器，但但但<code>接口2</code>再请求的时候不一定是A服务器，所以找不到<code>接口1</code>准备的文件了。</p>
+<p>说： 只定一台服务器放准备的文件即可，我看行，但是没这样做。</p>
+<h2 id="一个接口"><a href="#一个接口" class="headerlink" title="一个接口"></a>一个接口</h2><p>设置响应数据的类型<code>responseType</code>为<code>blob</code></p>
+<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFile</span>(<span class="params">url: string, params: any, cb: any</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ajaxUrl = <span class="built_in">window</span>.location.origin + url + <span class="string">"?params="</span> + <span class="built_in">JSON</span>.stringify(params);</span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.open(<span class="string">"GET"</span>, ajaxUrl, <span class="literal">true</span>);</span><br><span class="line">  xhr.responseType = <span class="string">"blob"</span>;       <span class="comment">// 关键</span></span><br><span class="line">  xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.status === <span class="number">200</span> || <span class="keyword">this</span>.status === <span class="number">201</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> blob = <span class="keyword">this</span>.response;</span><br><span class="line">      <span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line">      reader.readAsDataURL(blob);</span><br><span class="line">      reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e: any</span>) </span>&#123;</span><br><span class="line">      	</span><br><span class="line">        <span class="comment">// 文件名由后台控制</span></span><br><span class="line">        <span class="keyword">const</span> disposition: any = xhr.getResponseHeader(<span class="string">"Content-disposition"</span>);</span><br><span class="line">        <span class="keyword">const</span> arr = disposition.split(<span class="string">";"</span>);</span><br><span class="line">        <span class="keyword">const</span> filenameStr = arr.find(<span class="function">(<span class="params">i: string</span>) =&gt;</span> i.indexOf(<span class="string">"filename"</span>) &gt; <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">let</span> filename = <span class="built_in">decodeURI</span>(<span class="built_in">escape</span>((filenameStr.split(<span class="string">"="</span>)[<span class="number">1</span>])));</span><br><span class="line">        filename = filename.split(<span class="string">'"'</span>).join(<span class="string">""</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> El: any = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span><br><span class="line">        El.download = filename;</span><br><span class="line">        El.href = El.target.result;</span><br><span class="line">        <span class="keyword">const</span> root: any = <span class="built_in">document</span>.getElementById(<span class="string">"react-root"</span>);</span><br><span class="line">        root.appendChild(El);</span><br><span class="line">        El.click();</span><br><span class="line">        root.removeChild(El);</span><br><span class="line">        cb();</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下图，一个接口</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d888444f21e64cad89acdea4b816478e~tplv-k3u1fbpfcp-zoom-1.image" alt></p>
 
       
     </div>
@@ -358,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/echarts-save-image/" rel="next" title="保存ECharts图片">
-                <i class="fa fa-chevron-left"></i> 保存ECharts图片
+              <a href="/blog/HTTP-cache/" rel="next" title="HTTP缓存">
+                <i class="fa fa-chevron-left"></i> HTTP缓存
               </a>
             
           </div>
@@ -368,8 +377,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/HTTP-cache/" rel="prev" title="HTTP缓存">
-                HTTP缓存 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/flutter/" rel="prev" title="Flutter笔记">
+                Flutter笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -493,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sockjs-node-报错"><span class="nav-number">1.</span> <span class="nav-text">sockjs-node 报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个接口"><span class="nav-number">2.</span> <span class="nav-text">两个接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程"><span class="nav-number">2.1.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">2.2.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个接口"><span class="nav-number">3.</span> <span class="nav-text">一个接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上代码"><span class="nav-number">3.1.</span> <span class="nav-text">上代码</span></a></li></ol></li></ol></div>
             
 
           </div>
